@@ -1,0 +1,76 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+App:
+  Properties:
+    OnStart: |-
+      =// 1. Core Brand Colors (Constant across both themes)
+      Set(gblColorPrimary, RGBA(24, 43, 73, 1));      // Deep Steel Blue
+      Set(gblColorAccent, RGBA(242, 142, 43, 1));     // Safety Amber
+      Set(gblColorSuccess, RGBA(46, 117, 89, 1));     // Precision Emerald
+      Set(gblColorBorder, RGBA(108, 117, 125, 0.3));  // Machined Silver Outline
+
+      // 2. Set Theme Toggle (Change to true for Dark Mode by default)
+      Set(gblIsDarkMode, false); 
+
+      // 3. Conditional Theme Mapping
+      If(
+          gblIsDarkMode,
+          // DARK MODE: Modern, high-end technical workshop vibe
+          Concurrent(
+              Set(gblColorBackground, RGBA(18, 24, 38, 1)),      // Deep midnight slate
+              Set(gblColorSurface, RGBA(28, 37, 54, 1)),         // Slightly lighter card containers
+              Set(gblColorTextMain, RGBA(245, 247, 250, 1)),     // Crisp off-white text
+              Set(gblColorTextSub, RGBA(160, 174, 192, 1))       // Muted gray text
+          ),
+          // LIGHT MODE: Clean, high-contrast blueprint reader vibe
+          Concurrent(
+              Set(gblColorBackground, RGBA(244, 246, 249, 1)),   // Clean, soft gray-white
+              Set(gblColorSurface, RGBA(255, 255, 255, 1)),      // Stark white card containers
+              Set(gblColorTextMain, RGBA(20, 30, 45, 1)),        // Near-black steel for maximum readability
+              Set(gblColorTextSub, RGBA(90, 105, 120, 1))        // Medium slate for sub-text
+          )
+      );
+
+      Set(gblScale, App.Width / 390);
+
+      // Theme definition for better structure and reusability
+      Set(
+          gblTheme,
+          {
+              Colors:
+              {
+                  Primary: ColorValue("#182B49"),      // Deep midnight slate
+                  Accent: ColorValue("#F28E2B"),       // Safety Amber
+                  Success: ColorValue("#2E7559"),      // Precision Emerald
+                  Border: ColorValue("#6C757D "),      // Machine Silver
+                  Background: ColorValue("#F4F6F9"),   // Blueprint Light
+                  Surface: ColorValue("#FFFFFF"),      // Stark White
+                  TextMain: ColorValue("#141E2D"),     // Steel Text Main
+                  TextSub: ColorValue("#5A6978")      // Muted Slate Sub
+              },
+
+              Fonts:
+              {
+                  Small: Round(18 * gblScale, 0),
+                  Normal: Round(24 * gblScale, 0),
+                  Large: Round(30 * gblScale, 0),
+                  Title: Round(30  * gblScale, 0)
+              },
+
+              Controls:
+              {
+                  InputHeight: Round(88 * gblScale, 0),
+                  ButtonHeight: Round(64 * gblScale, 0),
+                  CardRadius: Round(8 * gblScale, 0),
+                  ScreenPadding: Round(22 * gblScale, 0)
+              }
+          }
+      );
+    StartScreen: =Sc_Welcome
+    Theme: =PowerAppsTheme

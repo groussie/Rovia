@@ -1,0 +1,868 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Sc_Items_Reception:
+    Properties:
+      Fill: =gblColorBackground
+      Height: =App.Height
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      OnVisible: |-
+        =Set(varShowItemForm,false);
+        Set(varItemMode,"View")
+      Width: =App.Width
+    Children:
+      - Container2:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            Width: =Parent.Width
+          Children:
+            - TopBar:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  Fill: =gblColorPrimary
+                  FillPortions: =0
+                  Height: =88
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                  LayoutMinHeight: =16
+                  LayoutMinWidth: =16
+                  PaddingBottom: =8
+                  PaddingLeft: =8
+                  PaddingRight: =8
+                  PaddingTop: =8
+                  Width: =Parent.Width
+                Children:
+                  - ic_Back:
+                      Control: ModernIcon@1.1.1
+                      Properties:
+                        Height: =88
+                        Icon: ="ArrowLeft"
+                        IconColor: =gblColorAccent
+                        OnSelect: |-
+                          =ResetForm(frm_DetailsReceptionItems);
+                          Back()
+                        PaddingBottom: =22
+                        PaddingLeft: =22
+                        PaddingRight: =22
+                        PaddingTop: =22
+                        Width: =88
+                        X: =40
+                        Y: =40
+                  - lbl_PageName_ItemReception:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        FillPortions: =1
+                        Font: =Font.'Open Sans'
+                        Height: =88
+                        LayoutMinWidth: =0
+                        Size: =27
+                        Text: ="Items"
+                        Width: =291
+                        Wrap: =false
+                        X: =40
+                        Y: =40
+                  - IconNewItem1_2:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        Height: =88
+                        Icon: =Icon.Add
+                        OnSelect: |-
+                          =Set(varShowItemForm,true);
+                          Set(varItemMode,"New");
+                          NewForm(frm_DetailsReceptionItems)
+                        PaddingBottom: =24
+                        PaddingLeft: =24
+                        PaddingRight: =24
+                        PaddingTop: =24
+                        PressedFill: =RGBA(255, 255, 255, 0.3)
+                        TabIndex: =0
+                        Tooltip: ="Create new item"
+                        Width: =88
+                        X: =Parent.Width - Self.Width
+                        Y: =40
+            - ReceptionInfo:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutMaxHeight: =176
+                  LayoutMinHeight: =16
+                  LayoutMinWidth: =16
+                  PaddingBottom: =8
+                  PaddingLeft: =8
+                  PaddingRight: =8
+                  PaddingTop: =8
+                  Width: =Parent.Width
+                  X: =40
+                  Y: =40
+                Children:
+                  - Icon2:
+                      Control: ModernIcon@1.1.1
+                      Properties:
+                        Height: =88
+                        Icon: ="QuestionCircle"
+                        IconColor: =gblColorTextMain
+                        IconStyle: =IconStyle.Filled
+                        LayoutMinHeight: =16
+                        LayoutMinWidth: =16
+                        OnSelect: |-
+                          =ViewForm(frm_Reception);
+                          Navigate(sc_Details_Reception, Transition.Push)
+                        Width: =88
+                  - lbl_Reception:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =gblColorBorder
+                        Color: =gblColorTextMain
+                        Fill: =gblColorSurface
+                        FillPortions: =1
+                        Font: =Font.'Segoe UI'
+                        Height: =88
+                        LayoutMinWidth: =0
+                        Size: =gblTheme.Fonts.Small
+                        Text: =Concatenate(gal_Receptions.Selected.ReceptionReference, " | ", gal_Receptions.Selected.DateReception, " | ", gal_Receptions.Selected.ClientName)
+                        Width: =640
+                        X: =40
+                        Y: =40
+                  - Icon3:
+                      Control: ModernIcon@1.1.1
+                      Properties:
+                        Height: =gblTheme.Controls.ButtonHeight
+                        Icon: ="Scan"
+                        IconColor: =gblTheme.Colors.Primary
+                        IconStyle: =IconStyle.Filled
+                        LayoutMinHeight: =16
+                        LayoutMinWidth: =16
+                        OnSelect: =Navigate(Sc_ScanReceptionDoc)
+                        Width: =gblTheme.Controls.ButtonHeight
+            - ReceptionItems:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  LayoutMinHeight: =16
+                  LayoutMinWidth: =16
+                  Width: =Parent.Width
+                Children:
+                  - gal_Reception_Items:
+                      Control: Gallery@2.15.0
+                      Variant: BrowseLayout_Vertical_TwoTextVariant_ver5.0
+                      Properties:
+                        BorderColor: =gblColorBorder
+                        Fill: =gblColorSurface
+                        Height: =Parent.Height - Self.Y
+                        Items: =Filter(RouleauxClients, ReceptionRef.Id = gal_Receptions.Selected.ID)
+                        OnSelect: |-
+                          =Set(varShowItemForm,true);
+                          Set(varItemMode,"Edit");
+                          EditForm(frm_DetailsReceptionItems)
+                        TemplateSize: =127
+                        Width: =Parent.Width
+                        Y: =
+                      Children:
+                        - Rectangle2_2:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =gblColorAccent
+                              Height: =Parent.TemplateHeight - Separator2_2.Height
+                              OnSelect: =Select(Parent)
+                              Visible: =ThisItem.IsSelected
+                              Width: =4
+                        - NextArrow2_2:
+                            Control: Classic/Icon@2.5.0
+                            Properties:
+                              AccessibleLabel: =Self.Tooltip
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Color: =RGBA(166, 166, 166, 1)
+                              DisplayMode: =DisplayMode.Disabled
+                              Height: =50
+                              Icon: =Icon.ChevronRight
+                              OnSelect: =Select(Parent)
+                              PaddingBottom: =16
+                              PaddingLeft: =16
+                              PaddingRight: =16
+                              PaddingTop: =16
+                              Tooltip: ="View item details"
+                              Width: =50
+                              X: =Parent.TemplateWidth - Self.Width - 12
+                              Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        - Title2_2:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =gblTheme.Colors.TextMain
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                              Height: =Self.Size * 1.8
+                              OnSelect: =Select(Parent)
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =gblTheme.Fonts.Normal
+                              Text: =Concatenate(ThisItem.RefRouleauClient&" | "&ThisItem.LongueurTable&" x "&ThisItem.DiametreAReception)
+                              VerticalAlign: =VerticalAlign.Top
+                              Width: =Parent.TemplateWidth - 86
+                              X: =16
+                              Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle2_2.Size * 1.8)) / 2
+                        - Subtitle2_2:
+                            Control: Label@2.5.1
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =gblTheme.Colors.TextSub
+                              Font: =Font.'Open Sans'
+                              FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                              Height: =Self.Size * 1.8
+                              OnSelect: =Select(Parent)
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =gblTheme.Fonts.Small
+                              Text: =ThisItem.Calandre
+                              VerticalAlign: =VerticalAlign.Top
+                              Width: =Title2_2.Width
+                              X: =Title2_2.X
+                              Y: =Title2_2.Y + Title2_2.Height
+                        - Separator2_2:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Height: =8
+                              OnSelect: =Select(Parent)
+                              Width: =Parent.TemplateWidth
+                              Y: =Parent.TemplateHeight - Self.Height
+            - DetailsReceptionItems:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  Fill: =gblColorBackground
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =16
+                  Width: =Parent.Width
+                Children:
+                  - frm_DetailsReceptionItems:
+                      Control: Form@2.4.4
+                      Variant: Modern
+                      Layout: Vertical
+                      Properties:
+                        BorderColor: =gblColorBorder
+                        DataSource: =RouleauxClients
+                        DefaultMode: |-
+                          =If(
+                              varItemMode = "New",
+                              FormMode.New,
+                              FormMode.Edit
+                          )
+                        Height: =Parent.Height
+                        Item: |-
+                          =LookUp(
+                              RouleauxClients,
+                              ID = gal_Reception_Items.Selected.ID
+                          )
+                        NumberOfColumns: =2
+                        OnSuccess: |-
+                          =Refresh(RouleauxClients);
+                          ResetForm(frm_DetailsReceptionItems);
+                          Set(varShowItemForm, false)
+                        Visible: =varShowItemForm
+                        Width: =Parent.Width
+                      Children:
+                        - RefRouleauClient_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernTextualEdit
+                            IsLocked: true
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="RefRouleauClient"
+                              Default: =ThisItem.RefRouleauClient
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,RefRouleauClient)
+                              Height: =Parent.Height*.5
+                              MaxLength: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MaxLength, RefRouleauClient)
+                              Required: =false
+                              Update: =DataCardValue2.Text
+                              Width: =Parent.Width*.5
+                              X: =0
+                              Y: =0
+                            Children:
+                              - DataCardKey2:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =gblTheme.Colors.TextSub
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =gblTheme.Fonts.Small
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue2:
+                                  Control: ModernTextInput@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Default: =Parent.Default
+                                    DisplayMode: =Parent.DisplayMode
+                                    Fill: =gblTheme.Colors.Surface
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =gblTheme.Controls.InputHeight
+                                    MaxLength: =Parent.MaxLength
+                                    Required: =Parent.Required
+                                    Size: =gblTheme.Fonts.Normal
+                                    ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey2.Y + DataCardKey2.Height + 4
+                              - ErrorMessage2:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue2.Y + DataCardValue2.Height
+                              - StarVisible2:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey2.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey2.Y
+                        - Calandre_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernTextualEdit
+                            IsLocked: true
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="Calandre"
+                              Default: =ThisItem.Calandre
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,Calandre)
+                              Height: =Parent.Height*.5
+                              MaxLength: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MaxLength, Calandre)
+                              Required: =false
+                              Update: =DataCardValue4.Text
+                              Width: =Parent.Width*.5
+                              X: =1
+                              Y: =0
+                            Children:
+                              - DataCardKey9:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =gblTheme.Colors.TextSub
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =gblTheme.Fonts.Small
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue4:
+                                  Control: ModernTextInput@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Default: =Parent.Default
+                                    DisplayMode: =Parent.DisplayMode
+                                    Fill: =gblTheme.Colors.Surface
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =gblTheme.Controls.InputHeight
+                                    MaxLength: =Parent.MaxLength
+                                    Required: =Parent.Required
+                                    Size: =gblTheme.Fonts.Normal
+                                    ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey9.Y + DataCardKey9.Height + 4
+                              - ErrorMessage9:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue4.Y + DataCardValue4.Height
+                              - StarVisible9:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey9.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey9.Y
+                        - LongueurTable_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernNumberEdit
+                            IsLocked: true
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="LongueurTable"
+                              Default: =ThisItem.LongueurTable
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,LongueurTable)
+                              Height: =Parent.Height*.5
+                              Max: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MaxValue, LongueurTable)
+                              Min: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MinValue, LongueurTable)
+                              Required: =false
+                              Update: =DataCardValue8.Value
+                              Width: =Parent.Width*.5
+                              X: =0
+                              Y: =1
+                            Children:
+                              - DataCardKey13:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =gblTheme.Colors.TextSub
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =gblTheme.Fonts.Small
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue8:
+                                  Control: ModernNumberInput@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Default: =Parent.Default
+                                    DisplayMode: =Parent.DisplayMode
+                                    Fill: =gblTheme.Colors.Surface
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =gblTheme.Controls.InputHeight
+                                    Max: =Parent.Max
+                                    Min: =Parent.Min
+                                    Size: =gblTheme.Fonts.Normal
+                                    ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                              - ErrorMessage13:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue8.Y + DataCardValue8.Height
+                              - StarVisible13:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey13.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey13.Y
+                        - DiametreAReception_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernNumberEdit
+                            IsLocked: true
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="DiametreAReception"
+                              Default: =ThisItem.DiametreAReception
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,DiametreAReception)
+                              Height: =Parent.Height*.5
+                              Max: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MaxValue, DiametreAReception)
+                              Min: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MinValue, DiametreAReception)
+                              Required: =false
+                              Update: =DataCardValue9.Value
+                              Width: =Parent.Width*.5
+                              X: =1
+                              Y: =1
+                            Children:
+                              - DataCardKey14:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    AutoHeight: =true
+                                    Color: =gblTheme.Colors.TextSub
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =gblTheme.Fonts.Small
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue9:
+                                  Control: ModernNumberInput@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Default: =Parent.Default
+                                    DisplayMode: =Parent.DisplayMode
+                                    Fill: =gblTheme.Colors.Surface
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =gblTheme.Controls.InputHeight
+                                    Max: =Parent.Max
+                                    Min: =Parent.Min
+                                    Size: =gblTheme.Fonts.Normal
+                                    ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                              - ErrorMessage14:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue9.Y + DataCardValue9.Height
+                              - StarVisible14:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey14.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey14.Y
+                        - Client_DataCard2:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernComboBoxEdit
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="Client"
+                              Default: =ThisItem.Client
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,Client)
+                              Required: =false
+                              Update: =gal_Receptions.Selected.Client
+                              Visible: =false
+                              Width: =312
+                              X: =0
+                              Y: =2
+                            Children:
+                              - DataCardKey8:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue3:
+                                  Control: ModernCombobox@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DefaultSelectedItems: =[Parent.Default]
+                                    DisplayMode: =Parent.DisplayMode
+                                    Height: =32
+                                    ItemDisplayText: =ThisItem.Value
+                                    Items: =Choices([@RouleauxClients].Client)
+                                    SelectMultiple: =false
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey8.Y + DataCardKey8.Height + 4
+                              - ErrorMessage8:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue3.Y + DataCardValue3.Height
+                              - StarVisible8:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey8.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey8.Y
+                        - ReceptionRef_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernComboBoxEdit
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="ReceptionRef"
+                              Default: =ThisItem.ReceptionRef
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,ReceptionRef)
+                              Required: =false
+                              Update: |-
+                                ={Id: gal_Receptions.Selected.ID, Value: gal_Receptions.Selected.ReceptionReference}
+                              Visible: =false
+                              Width: =312
+                              X: =1
+                              Y: =2
+                            Children:
+                              - DataCardKey11:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue6:
+                                  Control: ModernCombobox@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DefaultSelectedItems: =[Parent.Default]
+                                    DisplayMode: =Parent.DisplayMode
+                                    Height: =32
+                                    ItemDisplayText: =ThisItem.Value
+                                    Items: =Choices([@RouleauxClients].ReceptionRef)
+                                    SelectMultiple: =false
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey11.Y + DataCardKey11.Height + 4
+                              - ErrorMessage11:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue6.Y + DataCardValue6.Height
+                              - StarVisible11:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey11.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey11.Y
+                        - PoidsAReception_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: ModernNumberEdit
+                            IsLocked: true
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              DataField: ="PoidsAReception"
+                              Default: =ThisItem.PoidsAReception
+                              DisplayName: =DataSourceInfo([@RouleauxClients],DataSourceInfo.DisplayName,PoidsAReception)
+                              Max: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MaxValue, PoidsAReception)
+                              Min: =DataSourceInfo([@RouleauxClients], DataSourceInfo.MinValue, PoidsAReception)
+                              Required: =false
+                              Update: =DataCardValue7.Value
+                              Visible: =false
+                              Width: =312
+                              X: =0
+                              Y: =3
+                            Children:
+                              - DataCardKey12:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =22
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Size: =14
+                                    Text: =Parent.DisplayName
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue7:
+                                  Control: ModernNumberInput@1.1.1
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Default: =Parent.Default
+                                    DisplayMode: =Parent.DisplayMode
+                                    Height: =32
+                                    Max: =Parent.Max
+                                    Min: =Parent.Min
+                                    ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey12.Y + DataCardKey12.Height + 4
+                              - ErrorMessage12:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Size: =14
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue7.Y + DataCardValue7.Height
+                              - StarVisible12:
+                                  Control: ModernText@1.0.0
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =Color.Red
+                                    Height: =DataCardKey12.Height
+                                    PaddingBottom: =0
+                                    PaddingTop: =0
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey12.Y
+            - Container6:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  ContentLanguage: =DetailsReceptionItems.Visible
+                  Height: =88
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                  LayoutMaxHeight: =88
+                  LayoutMinHeight: =0
+                  PaddingBottom: =8
+                  PaddingLeft: =8
+                  PaddingRight: =8
+                  PaddingTop: =8
+                  Width: =Parent.Width
+                  X: =40
+                  Y: =40
+                Children:
+                  - IconCancel1_1:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =gblColorTextSub
+                        Height: =88
+                        Icon: =Icon.Cancel
+                        OnSelect: |-
+                          =ResetForm(frm_DetailsReceptionItems);
+                          Set(varShowItemForm,false)
+                        PaddingBottom: =22
+                        PaddingLeft: =22
+                        PaddingRight: =22
+                        PaddingTop: =22
+                        PressedFill: =RGBA(255, 255, 255, 0.3)
+                        TabIndex: =0
+                        Tooltip: ="Cancel item"
+                        Visible: =Boolean(frm_DetailsReceptionItems.Mode <> FormMode.View)
+                        Width: =88
+                        X: =40
+                        Y: =40
+                  - IconAccept1_1:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =gblColorPrimary
+                        Height: =88
+                        Icon: =Icon.CheckBadge
+                        OnSelect: =SubmitForm(frm_DetailsReceptionItems)
+                        PaddingBottom: =22
+                        PaddingLeft: =22
+                        PaddingRight: =22
+                        PaddingTop: =22
+                        PressedFill: =RGBA(255, 255, 255, 0.3)
+                        TabIndex: =0
+                        Tooltip: ="Sauvegarder"
+                        Visible: =Boolean(frm_DetailsReceptionItems.Mode <> FormMode.View)
+                        Width: =88
+                        X: =Parent.Width - Self.Width
+                        Y: =40

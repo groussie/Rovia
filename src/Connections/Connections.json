@@ -1,0 +1,113 @@
+{
+  "a1045a7a-9e40-4dea-b3fe-54de79fe190a": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1827/1.0.1827.4908/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "cc89dffe-2a0a-470d-aefc-923fe97e6a31": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowDisplayName": {
+          "value": "FlowReceptionScanSave"
+        },
+        "workflowEntityId": {
+          "value": "56d8d2a1-00ab-f111-aaab-002248db5476"
+        },
+        "workflowName": {
+          "value": "7a6ebcec-ae66-9a2c-7386-dc0d80221c8a"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "cc89dffe-2a0a-470d-aefc-923fe97e6a31"
+        },
+        "workflowDisplayName": {
+          "value": "FlowReceptionScanSave"
+        },
+        "workflowEntityId": {
+          "value": "56d8d2a1-00ab-f111-aaab-002248db5476"
+        },
+        "workflowName": {
+          "value": "7a6ebcec-ae66-9a2c-7386-dc0d80221c8a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "FlowReceptionScanSave"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "cc89dffe-2a0a-470d-aefc-923fe97e6a31"
+    },
+    "dependents": [],
+    "id": "a1045a7a-9e40-4dea-b3fe-54de79fe190a"
+  },
+  "cc89dffe-2a0a-470d-aefc-923fe97e6a31": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1827/1.0.1827.4913/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://roval029.sharepoint.com_gre_shared_sharepointonline_acdb3e4ca65c453b9880a6d329c31985": {
+        "datasetOverride": {
+          "environmentVariableName": "gre_shared_sharepointonline_acdb3e4ca65c453b9880a6d329c31985",
+          "name": "https://roval029.sharepoint.com"
+        },
+        "dataSources": {
+          "Clients": {
+            "tableName": "b0ad073d-586b-43e9-8f9d-148e21e6599b",
+            "tableNameOverride": {
+              "environmentVariableName": "gre_shared_sharepointonline_32559fdde3434e36b76db946e4a689f0",
+              "name": "b0ad073d-586b-43e9-8f9d-148e21e6599b"
+            }
+          },
+          "DocumentTypes": {
+            "tableName": "7c3f45ef-0b06-4796-a597-d6992492f90a",
+            "tableNameOverride": {
+              "environmentVariableName": "gre_shared_sharepointonline_9c9a09919a2b43d7987429f9939cc5ff",
+              "name": "7c3f45ef-0b06-4796-a597-d6992492f90a"
+            }
+          },
+          "Reception": {
+            "tableName": "9b29854d-7e4b-4353-a5c4-b1ad79807341",
+            "tableNameOverride": {
+              "environmentVariableName": "gre_shared_sharepointonline_9838fddeb9cf4bfdaed64e08f1e0ea3f",
+              "name": "9b29854d-7e4b-4353-a5c4-b1ad79807341"
+            }
+          },
+          "RouleauxClients": {
+            "tableName": "163f15fb-15ec-4ba7-9e85-7ef8a89e9187",
+            "tableNameOverride": {
+              "environmentVariableName": "gre_shared_sharepointonline_d7f02ebc6c0f4968a02d373744e0fbdf",
+              "name": "163f15fb-15ec-4ba7-9e85-7ef8a89e9187"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "RouleauxClients",
+      "Reception",
+      "Clients",
+      "DocumentTypes"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "a1045a7a-9e40-4dea-b3fe-54de79fe190a"
+    ],
+    "id": "cc89dffe-2a0a-470d-aefc-923fe97e6a31"
+  }
+}

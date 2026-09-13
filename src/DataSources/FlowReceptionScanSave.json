@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "1934c57d-f252-40bb-8e54-1cee1061b2d0",
+    "Name": "FlowReceptionScanSave",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "56d8d2a1-00ab-f111-aaab-002248db5476"
+  }
+]

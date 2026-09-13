@@ -1,0 +1,300 @@
+Sc_ScanReceptionDoc As screen:
+    OnVisible: =
+
+    Container2_2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGridColumnMinWidth: =0
+        LayoutGridColumns: =6
+        LayoutGridRowMinHeight: =0
+        LayoutGridRows: =6
+        LayoutMode: =LayoutMode.Auto
+        maximumHeight: =11360
+        maximumWidth: =640
+        PaddingBottom: =8
+        PaddingLeft: =8
+        PaddingRight: =8
+        PaddingTop: =8
+        Width: =Parent.Width
+        ZIndex: =4
+
+        TopBar_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =gblColorPrimary
+            FillPortions: =0
+            Height: =88
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMaxHeight: =0
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            LayoutMode: =LayoutMode.Auto
+            maximumHeight: =11360
+            maximumWidth: =640
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            ZIndex: =1
+
+            ic_Back_2 As modernIcon:
+                BorderStyle: =""
+                Height: =88
+                Icon: ="ArrowLeft"
+                IconColor: =gblColorAccent
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                LayoutMinHeight: =42
+                LayoutMinWidth: =42
+                OnSelect: =Back()
+                PaddingBottom: =22
+                PaddingLeft: =22
+                PaddingRight: =22
+                PaddingTop: =22
+                Width: =88
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            lbl_PageName_ScanReceptionDoc As label:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                FillPortions: =1
+                Height: =88
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                LayoutMinHeight: =70
+                LayoutMinWidth: =0
+                Size: =27
+                Text: ="Scan Reception Doc"
+                Width: =291
+                Wrap: =false
+                X: =40
+                Y: =40
+                ZIndex: =2
+
+            IconNewItem1_3 As icon:
+                AccessibleLabel: =Self.Tooltip
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =88
+                Icon: =Icon.Add
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                OnSelect: =
+                PaddingBottom: =24
+                PaddingLeft: =24
+                PaddingRight: =24
+                PaddingTop: =24
+                PressedFill: =RGBA(255, 255, 255, 0.3)
+                TabIndex: =0
+                Tooltip: ="Create new item"
+                Width: =88
+                X: =Parent.Width - Self.Width
+                Y: =40
+                ZIndex: =3
+
+        ReceptionInfo_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =225
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            LayoutMaxHeight: =176
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            LayoutMode: =LayoutMode.Auto
+            maximumHeight: =11360
+            maximumWidth: =640
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+            lbl_Reception_1 As label:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =gblColorBorder
+                Color: =gblColorTextSub
+                Fill: =gblColorSurface
+                FillPortions: =1
+                Font: =Font.'Segoe UI'
+                Height: =88
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                LayoutMinHeight: =70
+                LayoutMinWidth: =0
+                Size: =21
+                Text: =Concatenate(gal_Receptions.Selected.ReceptionReference, " | ", gal_Receptions.Selected.DateReception, " | ", gal_Receptions.Selected.ClientName)
+                Width: =640
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            cmb_DocumentType As modernCombobox:
+                AlignInContainer: =AlignInContainer.Stretch
+                Appearance: =Appearance.FilledDarker
+                Color: =gblTheme.Colors.TextMain
+                Fill: =gblTheme.Colors.Surface
+                Font: =Font.'Segoe UI'
+                Height: =64
+                ItemDisplayText: =ThisItem.Commentaire
+                Items: =Filter(DocumentTypes, OperationContext)
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                LayoutMinHeight: =16
+                LayoutMinWidth: =16
+                OnChange: |-
+                    =Set(
+                        varFileNameScanReception,
+                        gal_Receptions.Selected.ReceptionReference & " " & cmb_DocumentType.Selected.LabelDocumentType & ".jpg"
+                    )
+                PaddingLeft: =5
+                SelectMultiple: =false
+                Size: =gblTheme.Fonts.Normal
+                ValidationState: =ValidationState.None
+                Width: =560
+                ZIndex: =2
+
+        Container5 As groupContainer.manualLayoutContainer:
+            Height: =225
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            LayoutMaxHeight: =0
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            ZIndex: =3
+
+            Text2 As modernText:
+                Height: =50
+                Text: ="Text"
+                Width: =200
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            AddMediaWithImage As group:
+                Height: =5
+                Width: =5
+                X: =60
+                Y: =60
+                ZIndex: =2
+
+                UploadedImage3 As image:
+                    Height: =Parent.Height
+                    Image: =If(IsBlank(AddMediaButton3.Media), SampleImage, AddMediaButton3.Media)
+                    ImagePosition: =ImagePosition.Fill
+                    Width: =Parent.Width
+                    Y: =0   
+                    ZIndex: =3
+
+                AddMediaButton3 As addMedia:
+                    Height: =Parent.Height
+                    Size: =25
+                    Width: =Parent.Width
+                    Y: =0   
+                    ZIndex: =4
+
+        Container6_1 As groupContainer.horizontalAutoLayoutContainer:
+            ContentLanguage: =
+            Height: =88
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGridColumnMinWidth: =0
+            LayoutGridColumns: =6
+            LayoutGridRowMinHeight: =0
+            LayoutGridRows: =6
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMaxHeight: =88
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =0
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            maximumHeight: =11360
+            maximumWidth: =640
+            PaddingBottom: =8
+            PaddingLeft: =8
+            PaddingRight: =8
+            PaddingTop: =8
+            X: =40
+            Y: =40
+            ZIndex: =4
+
+            Button1 As modernButton:
+                BasePaletteColor: =gblTheme.Colors.Accent
+                BorderColor: =gblTheme.Colors.Border
+                Font: =Font.'Segoe UI'
+                Height: =gblTheme.Controls.ButtonHeight
+                Icon: ="Save"
+                LayoutMaxHeight: =0
+                LayoutMaxWidth: =0
+                LayoutMinHeight: =16
+                LayoutMinWidth: =16
+                OnSelect: |-
+                    =If(
+                        IsBlank(AddMediaButton3.Media),
+                        Notify(
+                            "Scanner avant de sauvegarder",
+                            NotificationType.Warning
+                        ),
+                        IsEmpty(cmb_DocumentType.SelectedItems),
+                        Notify(
+                            "Choisir un type de Doc avant de sauvegarder",
+                            NotificationType.Warning
+                        ),
+                        IfError(
+                            FlowReceptionScanSave.Run(
+                                varFileNameScanReception,
+                                gal_Receptions.Selected.ReceptionReference,
+                                Text(
+                                    LookUp(
+                                        Clients,
+                                        ID = gal_Receptions.Selected.'Client: Code Client'.Id
+                                    ).'Code Client',
+                                    "0000"
+                                ),
+                                JSON(
+                                    UploadedImage3.Image,
+                                    JSONFormat.IncludeBinaryData
+                                )
+                            ),
+                            Notify(
+                                "Scan non sauvegardé " & FirstError.Message,
+                                NotificationType.Error,
+                                7000
+                            ),
+                            Notify(
+                                "Scan sauvegardé",
+                                NotificationType.Success,
+                                4000
+                            )
+                        )
+                    );
+                    Set(
+                        varFileNameScanReception,
+                        gal_Receptions.Selected.ReceptionReference & " " & cmb_DocumentType.Selected.LabelDocumentType & ".jpg"
+                    )
+                PaddingBottom: =gblTheme.Controls.ScreenPadding
+                PaddingLeft: =gblTheme.Controls.ScreenPadding
+                PaddingRight: =gblTheme.Controls.ScreenPadding
+                PaddingTop: =gblTheme.Controls.ScreenPadding
+                RadiusTopLeft: =gblTheme.Controls.CardRadius
+                Size: =gblTheme.Fonts.Normal
+                Text: ="Enregistrer"
+                VerticalAlign: =VerticalAlign.Middle
+                Width: =280
+                ZIndex: =2
+

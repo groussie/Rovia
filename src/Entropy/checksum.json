@@ -1,0 +1,30 @@
+{
+  "ClientPerFileChecksums": {
+    "AppCheckerResult.sarif": "C8_frlfA7m3Tm/xU8Wo4v6JffDiX+x2xmlLaV+TvW0PepA=",
+    "Controls\\1.json": "C8_+ChYxZ0Qtqwr2q1qik2dwkTdTyYxNCu0YieRjRNx5Ew=",
+    "Controls\\10.json": "C8_ttQSkygKZCI7PNyaH5P9f0pY9fdqu8ggNW8taV/5Wtg=",
+    "Controls\\142.json": "C8_nm9szZi+NlH3CMqXLwacvohbqRq/ULxFSIc7Zc9k28s=",
+    "Controls\\27.json": "C8_aBK9GkhLKpZ0TUj1r0b7qDofYbsI0LT9YO17ypQt59E=",
+    "Controls\\4.json": "C8_IsH5YBgDraAPoK9IWrNdUBg1nFftiqhu9khazcu0GEE=",
+    "Controls\\44.json": "C8_K1e4ClGTajztl4XM+M/UcLVIJvQk5pNZvjqtDewut4M=",
+    "Controls\\84.json": "C8_8J6mDx/mF6ac0ihudoKyBx+hDJnRutDY/f2FrSUa7EE=",
+    "Header.json": "C8_RQK+n80L20+Q9QcrzWXXv4eHKlQqmfoiti9WIvc3mb0=",
+    "Properties.json": "C8_wfdrD1qLROJqiD/iHWOV7EIzsdcr+eDdHJvWp6wBNtY=",
+    "References\\DataSources.json": "C8_H3xAlSZWOCF4qh0CD/MNofdBFDd8PU5NdGoBj0D+1XA=",
+    "References\\ModernThemes.json": "C8_KDQJ/3t27vgKx25iCQB/PGqxkWE34ZB7Eyb+RxNxY0k=",
+    "References\\Resources.json": "C8_2coBcMTCWlGR1VoVn0WbDxGD/TnudkFQt9J29DB8hds=",
+    "References\\Templates.json": "C8_tfous9DQndU0O2x+UTRKRu/b9SujdmTf7gGZVFePeFI=",
+    "References\\Themes.json": "C8_DwkkMNV1j+tD94nbLPmC4Lq2wvPVfUT0BRPDe6aP2rM=",
+    "Resources\\PublishInfo.json": "C8_wFayCLaeUR0Ewr9//b3WFmRO+WFuDFZX2f5Y614I3zQ=",
+    "Resources\\pwxp4j54.jpg": "C8_QdnmhnC3PllY3c3nkMDPugGcGpi3yS0+W7K/AhWlN2o=",
+    "Src\\_EditorState.pa.yaml": "C8_Sf0HdgEn83YLfyOkmvXcXRdbpQqiJ7GyreOz54V7YxY=",
+    "Src\\App.pa.yaml": "C8_P1/+yPuXsfKhP9mV8Oj+nFk2b4KIAo5OK6uIR3a00Ow=",
+    "Src\\Sc_Customers.pa.yaml": "C8_c2dmWyJpF/OLbquR9VB/5gEAMds2TnEGyBi64efkrIQ=",
+    "Src\\sc_Details_Reception.pa.yaml": "C8_fZRMZFB727YfEsXHOhfAu+3nLhbTWPYMEt4XPbVE8Gc=",
+    "Src\\Sc_Items_Reception.pa.yaml": "C8_FlO52Q3TOL/WReFX+mWLKkaotg6MQgi+V2SNhKm25/8=",
+    "Src\\Sc_Receptions.pa.yaml": "C8_QE3E4hjPtto+sAwA98hC/GI00zZFjxVkkWNiSP5TvCk=",
+    "Src\\Sc_ScanReceptionDoc.pa.yaml": "C8_gqA+D9jVNjtZP+OPsFXBHGtWV+y5VIOFa4RYf1DhMGs=",
+    "Src\\Sc_Welcome.pa.yaml": "C8_vlXlseDD04T0SUiaM68fBAH8jkGZNDk6X4PxHslE8AM="
+  },
+  "ClientStampedChecksum": "C8_1ObQBZcuXAXBOzCoe8fY5xsJquJ3C9hTBwKNayipRsM="
+}

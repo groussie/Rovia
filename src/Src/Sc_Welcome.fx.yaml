@@ -1,0 +1,74 @@
+Sc_Welcome As screen:
+    Fill: =gblColorBackground
+    Width: =App.Width
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGridColumnMinWidth: =0
+        LayoutGridColumns: =6
+        LayoutGridRowMinHeight: =0
+        LayoutGridRows: =6
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =8
+        PaddingLeft: =8
+        PaddingRight: =8
+        PaddingTop: =8
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Text1 As modernText:
+            Align: =Align.Center
+            AutoHeight: =true
+            Color: =gblColorTextMain
+            Font: =Font.'Segoe UI'
+            Height: =50
+            LayoutMaxHeight: =0
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            Size: =48
+            Text: ="Prototype d'application pour la saisie des arrivees de Rouleaux"
+            Width: =500
+            ZIndex: =1
+
+        "'Liste des clients' As modernButton":
+            Appearance: =ButtonAppearance.Transparent
+            BasePaletteColor: =gblColorAccent
+            BorderColor: =gblColorBorder
+            Height: =64
+            LayoutMaxHeight: =0
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            OnSelect: =Navigate(Sc_Customers, ScreenTransition.Cover)
+            Text: ="Liste des clients"
+            Width: =280
+            ZIndex: =2
+
+        Receptions As modernButton:
+            BasePaletteColor: =gblTheme.Colors.Accent
+            BorderColor: =gblColorBorder
+            BorderStyle: =""
+            Font: =""
+            Height: =64
+            LayoutMaxHeight: =0
+            LayoutMaxWidth: =0
+            LayoutMinHeight: =16
+            LayoutMinWidth: =16
+            OnSelect: =Navigate(Sc_Receptions, ScreenTransition.Cover)
+            Size: =24
+            Text: ="Receptions"
+            Width: =280
+            ZIndex: =3
+
+    Text3 As modernText:
+        Height: =200
+        Text: |-
+            =Concatenate("appw: ", App.Width, " MinScreenW: ", App.MinScreenWidth, " ScreenW: ", Sc_Welcome.Width)
+        Width: =444
+        X: =112
+        Y: =468
+        ZIndex: =2
+
