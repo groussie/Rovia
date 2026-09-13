@@ -277,6 +277,7 @@
                         Font: =Font.'Segoe UI'
                         Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Select a date"
+                        Size: =gblTheme.Fonts.Normal
                         ValidationState: =ValidationState.None
                         Width: =354
                         X: =256
@@ -350,6 +351,7 @@
                         ItemDisplayText: =ThisItem.Value
                         Items: =Choices(Reception.Client)
                         SelectMultiple: =false
+                        Size: =gblTheme.Fonts.Normal
                         ValidationState: =ValidationState.None
                         Width: =580
                         X: =30
@@ -421,6 +423,7 @@
                         Font: =Font.'Segoe UI'
                         Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Ref. bon de livraison"
+                        Size: =gblTheme.Fonts.Normal
                         TriggerOutput: =TriggerOutput.Keypress
                         ValidationState: =ValidationState.None
                         Width: =357
@@ -570,6 +573,7 @@
                         Fill: =gblColorSurface
                         Height: =300
                         Placeholder: ="Text Libre"
+                        Size: =gblTheme.Fonts.Normal
                         TriggerOutput: =TriggerOutput.Delayed
                         Type: =TextInputType.Multiline
                         ValidationState: =ValidationState.None

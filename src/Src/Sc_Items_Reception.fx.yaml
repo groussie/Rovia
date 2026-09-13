@@ -647,6 +647,7 @@ Sc_Items_Reception As screen:
                         ItemDisplayText: =ThisItem.Value
                         Items: =Choices([@RouleauxClients].Client)
                         SelectMultiple: =false
+                        Size: =gblTheme.Fonts.Small
                         ValidationState: =ValidationState.None
                         Width: =Parent.Width - 48
                         X: =24
@@ -713,6 +714,7 @@ Sc_Items_Reception As screen:
                         ItemDisplayText: =ThisItem.Value
                         Items: =Choices([@RouleauxClients].ReceptionRef)
                         SelectMultiple: =false
+                        Size: =gblTheme.Fonts.Small
                         ValidationState: =ValidationState.None
                         Width: =Parent.Width - 48
                         X: =24
@@ -778,7 +780,7 @@ Sc_Items_Reception As screen:
                         DisplayMode: =Parent.DisplayMode
                         Max: =Parent.Max
                         Min: =Parent.Min
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         ValidationState: =If(IsBlank(Parent.Error), ValidationState.None, ValidationState.Error)
                         Width: =Parent.Width - 48
                         X: =24
