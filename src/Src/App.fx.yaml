@@ -5,8 +5,12 @@ App As appinfo:
         Set(gblIsDarkMode, false);
         
         // 2. Device type & responsive scale
-        // Capped so wide tablets/desktop browsers don't balloon past the app's own
-        // maximumWidth (640), and clamped so small phones stay readable.
+        // Breakpoints (600 / 1024) match the common Material/Bootstrap/Tailwind
+        // phone-tablet-desktop cutoffs. Each bracket's ratio is anchored to its
+        // OWN lower bound (320 for phone, 600 for tablet) so the ratio actually
+        // spans a meaningful range across real device widths, instead of being
+        // measured against a fixed 390px baseline that almost no device reaches
+        // the top of - which is why the old formula could never get past ~0.9.
         Set(
             gblDeviceType,
             If(
@@ -15,14 +19,14 @@ App As appinfo:
                 "Desktop"
             )
         );
-        
+
         Set(
             gblScale,
             Switch(
                 gblDeviceType,
-                "Phone", Min(Max(App.Width / 390, 0.85), 1.15),
-                "Tablet", Min(Max(App.Width / 768, 0.9), 1.25),
-                1.15 // Desktop/Web: fixed, ignores window width
+                "Phone", Min(Max(App.Width / 320, 1), 2),      // 320px (smallest phone) to 600px -> 1x to ~1.9x
+                "Tablet", Min(Max(App.Width / 600, 1), 1.8),   // 600px to 1024px -> 1x to ~1.7x
+                1.5                                              // Desktop/Web: fixed, ignores window width
             )
         );
         
@@ -47,18 +51,18 @@ App As appinfo:
         
                 Fonts:
                 {
-                    Small: Max(14, Min(22, Round(18 * gblScale, 0))),
-                    Normal: Max(18, Min(30, Round(24 * gblScale, 0))),
-                    Large: Max(22, Min(36, Round(30 * gblScale, 0))),
-                    Title: Max(22, Min(36, Round(30 * gblScale, 0)))
+                    Small: Max(16, Min(36, Round(18 * gblScale, 0))),
+                    Normal: Max(20, Min(48, Round(24 * gblScale, 0))),
+                    Large: Max(24, Min(56, Round(30 * gblScale, 0))),
+                    Title: Max(24, Min(56, Round(30 * gblScale, 0)))
                 },
-        
+
                 Controls:
                 {
-                    InputHeight: Max(64, Min(104, Round(88 * gblScale, 0))),
-                    ButtonHeight: Max(48, Min(80, Round(64 * gblScale, 0))),
-                    CardRadius: Max(6, Min(12, Round(8 * gblScale, 0))),
-                    ScreenPadding: Max(16, Min(28, Round(22 * gblScale, 0)))
+                    InputHeight: Max(64, Min(170, Round(88 * gblScale, 0))),
+                    ButtonHeight: Max(48, Min(130, Round(64 * gblScale, 0))),
+                    CardRadius: Max(6, Min(18, Round(8 * gblScale, 0))),
+                    ScreenPadding: Max(16, Min(44, Round(22 * gblScale, 0)))
                 }
             }
         );
