@@ -72,7 +72,7 @@
                 LayoutMaxWidth: =0
                 LayoutMinHeight: =70
                 LayoutMinWidth: =0
-                Size: =27
+                Size: =gblTheme.Fonts.Title
                 Text: ="Details Reception"
                 Width: =291
                 Wrap: =false
@@ -147,7 +147,7 @@
                     DataCardKey15 As label:
                         AutoHeight: =true
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -167,7 +167,7 @@
                         RadiusBottomRight: =0
                         RadiusTopLeft: =0
                         RadiusTopRight: =0
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -182,7 +182,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -193,7 +193,7 @@
                     StarVisible15 As label:
                         Align: =Align.Center
                         Height: =DataCardKey15.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -227,7 +227,7 @@
                         Color: =gblColorTextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -238,7 +238,7 @@
                     StarVisible3 As label:
                         Align: =Align.Center
                         Height: =DataCardKey3.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -254,7 +254,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -275,7 +275,7 @@
                         DisplayMode: =DisplayMode.View
                         Fill: =gblColorSurface
                         Font: =Font.'Segoe UI'
-                        Height: =64
+                        Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Select a date"
                         ValidationState: =ValidationState.None
                         Width: =354
@@ -304,7 +304,7 @@
                         Color: =gblColorTextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -320,7 +320,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -331,7 +331,7 @@
                     StarVisible4 As label:
                         Align: =Align.Center
                         Height: =DataCardKey4.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -345,7 +345,7 @@
                         DefaultSelectedItems: =Parent.Default
                         Fill: =gblColorSurface
                         Font: =Font.'Segoe UI'
-                        Height: =64
+                        Height: =gblTheme.Controls.InputHeight
                         InputTextPlaceholder: ="Entrer pour filtrer"
                         ItemDisplayText: =ThisItem.Value
                         Items: =Choices(Reception.Client)
@@ -378,7 +378,7 @@
                         Color: =gblColorTextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -394,7 +394,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -405,7 +405,7 @@
                     StarVisible5 As label:
                         Align: =Align.Center
                         Height: =DataCardKey5.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -419,7 +419,7 @@
                         Default: =Parent.Default
                         Fill: =gblColorSurface
                         Font: =Font.'Segoe UI'
-                        Height: =64
+                        Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Ref. bon de livraison"
                         TriggerOutput: =TriggerOutput.Keypress
                         ValidationState: =ValidationState.None
@@ -449,7 +449,7 @@
                         Color: =gblColorTextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -465,7 +465,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -476,7 +476,7 @@
                     StarVisible6 As label:
                         Align: =Align.Center
                         Height: =DataCardKey6.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
@@ -496,10 +496,10 @@
                         Fill: =gblColorSurface
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Bold
-                        Height: =104
+                        Height: =gblTheme.Controls.InputHeight
                         Min: =1
                         Precision: =DecimalPrecision.'0'
-                        Size: =26
+                        Size: =gblTheme.Fonts.Normal
                         ValidationState: =ValidationState.None
                         Width: =357
                         X: =253
@@ -528,7 +528,7 @@
                         Color: =gblColorTextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         Wrap: =false
@@ -544,7 +544,7 @@
                         PaddingLeft: =0
                         PaddingRight: =0
                         PaddingTop: =0
-                        Size: =24
+                        Size: =gblTheme.Fonts.Normal
                         Text: =Parent.Error
                         Visible: =Parent.DisplayMode=DisplayMode.Edit
                         Width: =Parent.Width - 60
@@ -555,7 +555,7 @@
                     StarVisible7 As label:
                         Align: =Align.Center
                         Height: =DataCardKey7.Height
-                        Size: =21
+                        Size: =gblTheme.Fonts.Small
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
