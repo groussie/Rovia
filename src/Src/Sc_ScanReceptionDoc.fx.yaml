@@ -21,7 +21,7 @@ Sc_ScanReceptionDoc As screen:
 
         TopBar_1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =gblColorPrimary
+            Fill: =gblTheme.Colors.Primary
             FillPortions: =0
             Height: =88
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -47,7 +47,7 @@ Sc_ScanReceptionDoc As screen:
                 BorderStyle: =""
                 Height: =88
                 Icon: ="ArrowLeft"
-                IconColor: =gblColorAccent
+                IconColor: =gblTheme.Colors.Accent
                 LayoutMaxHeight: =0
                 LayoutMaxWidth: =0
                 LayoutMinHeight: =42
@@ -125,9 +125,9 @@ Sc_ScanReceptionDoc As screen:
 
             lbl_Reception_1 As label:
                 AlignInContainer: =AlignInContainer.Stretch
-                BorderColor: =gblColorBorder
-                Color: =gblColorTextSub
-                Fill: =gblColorSurface
+                BorderColor: =gblTheme.Colors.Border
+                Color: =gblTheme.Colors.TextSub
+                Fill: =gblTheme.Colors.Surface
                 FillPortions: =1
                 Font: =Font.'Segoe UI'
                 Height: =88

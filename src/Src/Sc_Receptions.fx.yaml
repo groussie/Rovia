@@ -1,6 +1,6 @@
 Sc_Receptions As screen:
     ContentLanguage: =""
-    Fill: =gblColorBackground
+    Fill: =gblTheme.Colors.Background
     Height: =App.Height
     LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
     OnVisible: |-
@@ -15,16 +15,16 @@ Sc_Receptions As screen:
     Width: =App.Width
 
     RectQuickActionBar1_1 As rectangle:
-        Fill: =gblColorPrimary
+        Fill: =gblTheme.Colors.Primary
         Height: =88
         Width: =Parent.Width
         ZIndex: =1
 
     "gal_Receptions As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
         '#CopilotOverlayLabel': ="Filtered"
-        BorderColor: =gblColorBorder
+        BorderColor: =gblTheme.Colors.Border
         DelayItemLoading: =true
-        Fill: =gblColorSurface
+        Fill: =gblTheme.Colors.Surface
         Height: =Parent.Height - Self.Y
         Items: |-
             =//colReception
@@ -99,7 +99,7 @@ Sc_Receptions As screen:
             ZIndex: =4
 
         Rectangle2_1 As rectangle:
-            Fill: =gblColorAccent
+            Fill: =gblTheme.Colors.Accent
             Height: =Parent.TemplateHeight - Separator2_1.Height
             OnSelect: =Select(Parent)
             Visible: =ThisItem.IsSelected
@@ -173,7 +173,7 @@ Sc_Receptions As screen:
     TextSearchBox1_1 As text:
         BorderStyle: =BorderStyle.None
         Default: =""
-        Fill: =gblColorSurface
+        Fill: =gblTheme.Colors.Surface
         Height: =68
         HintText: ="Chercher"
         PaddingLeft: =70
@@ -200,7 +200,7 @@ Sc_Receptions As screen:
         ZIndex: =8
 
     Rectangle11_1 As rectangle:
-        Fill: =gblColorPrimary
+        Fill: =gblTheme.Colors.Primary
         Height: =2
         Width: =Parent.Width
         Y: =TextSearchBox1_1.Y + TextSearchBox1_1.Height
@@ -210,7 +210,7 @@ Sc_Receptions As screen:
         BorderStyle: =""
         Height: =88
         Icon: ="ArrowLeft"
-        IconColor: =gblColorAccent
+        IconColor: =gblTheme.Colors.Accent
         OnSelect: =Back()
         PaddingBottom: =22
         PaddingLeft: =22

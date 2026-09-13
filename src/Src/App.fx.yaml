@@ -1,66 +1,64 @@
 App As appinfo:
     BackEnabled: =true
     OnStart: |-
-        =// 1. Core Brand Colors (Constant across both themes)
-        Set(gblColorPrimary, RGBA(24, 43, 73, 1));      // Deep Steel Blue
-        Set(gblColorAccent, RGBA(242, 142, 43, 1));     // Safety Amber
-        Set(gblColorSuccess, RGBA(46, 117, 89, 1));     // Precision Emerald
-        Set(gblColorBorder, RGBA(108, 117, 125, 0.3));  // Machined Silver Outline
+        =// 1. Set Theme Toggle (Change to true for Dark Mode by default)
+        Set(gblIsDarkMode, false);
         
-        // 2. Set Theme Toggle (Change to true for Dark Mode by default)
-        Set(gblIsDarkMode, false); 
-        
-        // 3. Conditional Theme Mapping
-        If(
-            gblIsDarkMode,
-            // DARK MODE: Modern, high-end technical workshop vibe
-            Concurrent(
-                Set(gblColorBackground, RGBA(18, 24, 38, 1)),      // Deep midnight slate
-                Set(gblColorSurface, RGBA(28, 37, 54, 1)),         // Slightly lighter card containers
-                Set(gblColorTextMain, RGBA(245, 247, 250, 1)),     // Crisp off-white text
-                Set(gblColorTextSub, RGBA(160, 174, 192, 1))       // Muted gray text
-            ),
-            // LIGHT MODE: Clean, high-contrast blueprint reader vibe
-            Concurrent(
-                Set(gblColorBackground, RGBA(244, 246, 249, 1)),   // Clean, soft gray-white
-                Set(gblColorSurface, RGBA(255, 255, 255, 1)),      // Stark white card containers
-                Set(gblColorTextMain, RGBA(20, 30, 45, 1)),        // Near-black steel for maximum readability
-                Set(gblColorTextSub, RGBA(90, 105, 120, 1))        // Medium slate for sub-text
+        // 2. Device type & responsive scale
+        // Capped so wide tablets/desktop browsers don't balloon past the app's own
+        // maximumWidth (640), and clamped so small phones stay readable.
+        Set(
+            gblDeviceType,
+            If(
+                App.Width < 600, "Phone",
+                App.Width < 1024, "Tablet",
+                "Desktop"
             )
         );
         
-        Set(gblScale, App.Width / 390);
+        Set(
+            gblScale,
+            Switch(
+                gblDeviceType,
+                "Phone", Min(Max(App.Width / 390, 0.85), 1.15),
+                "Tablet", Min(Max(App.Width / 768, 0.9), 1.25),
+                1.15 // Desktop/Web: fixed, ignores window width
+            )
+        );
         
-        // Theme definition for better structure and reusability
+        // 3. Theme definition for better structure and reusability
         Set(
             gblTheme,
             {
                 Colors:
                 {
-                    Primary: ColorValue("#182B49"),      // Deep midnight slate
-                    Accent: ColorValue("#F28E2B"),       // Safety Amber
-                    Success: ColorValue("#2E7559"),      // Precision Emerald
-                    Border: ColorValue("#6C757D "),      // Machine Silver
-                    Background: ColorValue("#F4F6F9"),   // Blueprint Light
-                    Surface: ColorValue("#FFFFFF"),      // Stark White
-                    TextMain: ColorValue("#141E2D"),     // Steel Text Main
-                    TextSub: ColorValue("#5A6978")      // Muted Slate Sub
+                    // Core brand colors (constant across both themes)
+                    Primary: RGBA(24, 43, 73, 1),        // Deep Steel Blue
+                    Accent: RGBA(242, 142, 43, 1),       // Safety Amber
+                    Success: RGBA(46, 117, 89, 1),       // Precision Emerald
+                    Border: RGBA(108, 117, 125, 0.3),    // Machined Silver Outline
+        
+                    // Theme-dependent colors
+                    Background: If(gblIsDarkMode, RGBA(18, 24, 38, 1), RGBA(244, 246, 249, 1)), // Deep midnight slate or Clean, soft gray-white
+                    Surface: If(gblIsDarkMode, RGBA(28, 37, 54, 1), RGBA(255, 255, 255, 1)), // Slightly lighter card containers or pure white
+                    TextMain: If(gblIsDarkMode, RGBA(245, 247, 250, 1), RGBA(20, 30, 45, 1)), // Crisp off-white text or Near-black steel for maximum readability
+                    TextSub: If(gblIsDarkMode, RGBA(160, 174, 192, 1), RGBA(90, 105, 120, 1)) // Muted gray text or Medium slate for sub-text
                 },
         
                 Fonts:
                 {
-                    Small: Round(18 * gblScale, 0),
-                    Normal: Round(24 * gblScale, 0),
-                    Large: Round(30 * gblScale, 0),
-                    Title: Round(30  * gblScale, 0)
+                    Small: Max(14, Min(22, Round(18 * gblScale, 0))),
+                    Normal: Max(18, Min(30, Round(24 * gblScale, 0))),
+                    Large: Max(22, Min(36, Round(30 * gblScale, 0))),
+                    Title: Max(22, Min(36, Round(30 * gblScale, 0)))
                 },
         
                 Controls:
                 {
-                    InputHeight: Round(88 * gblScale, 0),
-                    ButtonHeight: Round(64 * gblScale, 0),
-                    CardRadius: Round(8 * gblScale, 0),
-                    ScreenPadding: Round(22 * gblScale, 0)
+                    InputHeight: Max(64, Min(104, Round(88 * gblScale, 0))),
+                    ButtonHeight: Max(48, Min(80, Round(64 * gblScale, 0))),
+                    CardRadius: Max(6, Min(12, Round(8 * gblScale, 0))),
+                    ScreenPadding: Max(16, Min(28, Round(22 * gblScale, 0)))
                 }
             }
         );

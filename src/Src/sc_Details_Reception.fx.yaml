@@ -20,7 +20,7 @@
 
         TopBar_DetailsReception As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
-            Fill: =gblColorPrimary
+            Fill: =gblTheme.Colors.Primary
             FillPortions: =0
             Height: =88
             LayoutAlignItems: =LayoutAlignItems.Center
@@ -46,7 +46,7 @@
                 BorderStyle: =""
                 Height: =88
                 Icon: ="ArrowLeft"
-                IconColor: =gblColorAccent
+                IconColor: =gblTheme.Colors.Accent
                 LayoutMaxHeight: =0
                 LayoutMaxWidth: =0
                 LayoutMinHeight: =42
@@ -100,9 +100,9 @@
             ZIndex: =2
 
             frm_Reception As form:
-                BorderColor: =gblColorBorder
+                BorderColor: =gblTheme.Colors.Border
                 DataSource: =Reception
-                Fill: =gblColorBackground
+                Fill: =gblTheme.Colors.Background
                 Height: =804
                 Item: |-
                     =LookUp(
@@ -224,7 +224,7 @@
 
                     DataCardKey3 As label:
                         AutoHeight: =true
-                        Color: =gblColorTextSub
+                        Color: =gblTheme.Colors.TextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
                         Size: =gblTheme.Fonts.Small
@@ -264,8 +264,8 @@
 
                     DatePicker1 As modernDatePicker:
                         Appearance: =Appearance.FilledDarker
-                        BorderColor: =gblColorBorder
-                        Color: =gblColorTextMain
+                        BorderColor: =gblTheme.Colors.Border
+                        Color: =gblTheme.Colors.TextMain
                         DefaultDate: |-
                             =If(
                                 frm_Reception.Mode = FormMode.New,
@@ -273,7 +273,7 @@
                                 Parent.Default
                             )
                         DisplayMode: =DisplayMode.View
-                        Fill: =gblColorSurface
+                        Fill: =gblTheme.Colors.Surface
                         Font: =Font.'Segoe UI'
                         Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Select a date"
@@ -302,7 +302,7 @@
 
                     DataCardKey4 As label:
                         AutoHeight: =true
-                        Color: =gblColorTextSub
+                        Color: =gblTheme.Colors.TextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
                         Size: =gblTheme.Fonts.Small
@@ -342,9 +342,9 @@
 
                     cmb_ClientReception As modernCombobox:
                         Appearance: =Appearance.FilledDarker
-                        Color: =gblColorTextMain
+                        Color: =gblTheme.Colors.TextMain
                         DefaultSelectedItems: =Parent.Default
-                        Fill: =gblColorSurface
+                        Fill: =gblTheme.Colors.Surface
                         Font: =Font.'Segoe UI'
                         Height: =gblTheme.Controls.InputHeight
                         InputTextPlaceholder: ="Entrer pour filtrer"
@@ -377,7 +377,7 @@
 
                     DataCardKey5 As label:
                         AutoHeight: =true
-                        Color: =gblColorTextSub
+                        Color: =gblTheme.Colors.TextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
                         Size: =gblTheme.Fonts.Small
@@ -417,9 +417,9 @@
 
                     txt_ReferenceBL As modernTextInput:
                         Appearance: =Appearance.FilledDarker
-                        Color: =gblColorTextMain
+                        Color: =gblTheme.Colors.TextMain
                         Default: =Parent.Default
-                        Fill: =gblColorSurface
+                        Fill: =gblTheme.Colors.Surface
                         Font: =Font.'Segoe UI'
                         Height: =gblTheme.Controls.InputHeight
                         Placeholder: ="Ref. bon de livraison"
@@ -449,7 +449,7 @@
 
                     DataCardKey6 As label:
                         AutoHeight: =true
-                        Color: =gblColorTextSub
+                        Color: =gblTheme.Colors.TextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
                         Size: =gblTheme.Fonts.Small
@@ -489,14 +489,14 @@
 
                     nbr_NombreDeColis As modernNumberInput:
                         Align: =Align.Center
-                        Color: =gblColorTextMain
+                        Color: =gblTheme.Colors.TextMain
                         Default: |-
                             =If(
                                 frm_Reception.Mode = FormMode.New,
                                 1,
                                 Parent.Default
                             )
-                        Fill: =gblColorSurface
+                        Fill: =gblTheme.Colors.Surface
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Bold
                         Height: =gblTheme.Controls.InputHeight
@@ -528,7 +528,7 @@
 
                     DataCardKey7 As label:
                         AutoHeight: =true
-                        Color: =gblColorTextSub
+                        Color: =gblTheme.Colors.TextSub
                         Font: =Font.'Segoe UI'
                         Height: =48
                         Size: =gblTheme.Fonts.Small
@@ -568,9 +568,9 @@
 
                     txt_CommentaireReception As modernTextInput:
                         Appearance: =Appearance.FilledDarker
-                        Color: =gblColorTextMain
+                        Color: =gblTheme.Colors.TextMain
                         Default: =Parent.Default
-                        Fill: =gblColorSurface
+                        Fill: =gblTheme.Colors.Surface
                         Height: =300
                         Placeholder: ="Text Libre"
                         Size: =gblTheme.Fonts.Normal
@@ -604,7 +604,7 @@
 
             IconCancel1 As icon.Cancel:
                 AccessibleLabel: =Self.Tooltip
-                Color: =gblColorTextSub
+                Color: =gblTheme.Colors.TextSub
                 Height: =88
                 Icon: =Icon.Cancel
                 LayoutMaxHeight: =0
@@ -625,7 +625,7 @@
 
             IconAccept1 As icon.Check:
                 AccessibleLabel: =Self.Tooltip
-                Color: =gblColorPrimary
+                Color: =gblTheme.Colors.Primary
                 Height: =88
                 Icon: =Icon.CheckBadge
                 LayoutMaxHeight: =0

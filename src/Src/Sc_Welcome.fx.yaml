@@ -1,5 +1,5 @@
 Sc_Welcome As screen:
-    Fill: =gblColorBackground
+    Fill: =gblTheme.Colors.Background
     Width: =App.Width
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
@@ -21,7 +21,7 @@ Sc_Welcome As screen:
         Text1 As modernText:
             Align: =Align.Center
             AutoHeight: =true
-            Color: =gblColorTextMain
+            Color: =gblTheme.Colors.TextMain
             Font: =Font.'Segoe UI'
             Height: =50
             LayoutMaxHeight: =0
@@ -35,8 +35,8 @@ Sc_Welcome As screen:
 
         "'Liste des clients' As modernButton":
             Appearance: =ButtonAppearance.Transparent
-            BasePaletteColor: =gblColorAccent
-            BorderColor: =gblColorBorder
+            BasePaletteColor: =gblTheme.Colors.Accent
+            BorderColor: =gblTheme.Colors.Border
             Height: =64
             LayoutMaxHeight: =0
             LayoutMaxWidth: =0
@@ -49,7 +49,7 @@ Sc_Welcome As screen:
 
         Receptions As modernButton:
             BasePaletteColor: =gblTheme.Colors.Accent
-            BorderColor: =gblColorBorder
+            BorderColor: =gblTheme.Colors.Border
             BorderStyle: =""
             Font: =""
             Height: =64
