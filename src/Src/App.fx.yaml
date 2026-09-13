@@ -19,7 +19,7 @@ App As appinfo:
                 "Desktop"
             )
         );
-
+        
         Set(
             gblScale,
             Switch(
@@ -56,7 +56,7 @@ App As appinfo:
                     Large: Max(24, Min(56, Round(30 * gblScale, 0))),
                     Title: Max(24, Min(56, Round(30 * gblScale, 0)))
                 },
-
+                
                 Controls:
                 {
                     InputHeight: Max(64, Min(170, Round(88 * gblScale, 0))),
@@ -68,7 +68,7 @@ App As appinfo:
         );
     StartScreen: =Sc_Welcome
     Theme: =PowerAppsTheme
-
+    
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
         OnEdit: =false
